@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>COZA Store</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="../images/icons/favicon.png"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../fonts/linearicons-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="../vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="../vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../vendor/slick/slick.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../vendor/MagnificPopup/magnific-popup.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../stylesheets/util.css">
+	<link rel="stylesheet" type="text/css" href="../stylesheets/main.css">
+<!--===============================================================================================-->
+</head>
+<body class="animsition">
+	<!-- Header -->
+	<%- include('./partials/navbar') %> 
+	<%- include('./partials/flash') %>
+	<!-- Slider -->
+	<section id="home" class="section-slide">
+		<div class="wrap-slick1">
+			<div class="slick1">
+				<% banner.forEach((p)=>{%> 
+				<div class="item-slick1" style="background-image: url(<%=p.image[0].url%>);">
+					<div class="container h-full">
+						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5" style="margin-left: 18%;">
+							<div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
+								<span style="color: black;" class="ltext-101 cl2 respon2">
+									<%=p.highlight%> 
+								</span>
+							</div>
+								
+							<div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
+								<h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">
+									<%=p.description%> 
+								</h2>
+							</div>
+								
+							
+						</div>
+					</div>
+				</div>
+				<% }) %> 
+			</div>
+		</div>
+	</section>
+	
+<!---------------------------------------------------------------------------------->
+<section id="latest"  class="sec-relate-product bg0 p-t-45 p-b-105">
+	<div class="container">
+		<div class="p-b-45">
+			<h3 class="ltext-106 cl5 txt-center">
+				Latest Arrivals
+			</h3>
+		</div>
+		<!-- Slide2 -->
+		<div class="wrap-slick2">
+			<div class="slick2">
+				<% latestArrivals.forEach((p)=>{ %>
+				<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
+					<!-- Block2 -->
+					<div class="block2">
+						<div class="block2-pic hov-img0">
+							<img src="<%= p.image[0].url %>" alt="IMG-PRODUCT">
+
+							<a href="/viewproduct/<%= p._id %>" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 ">
+								View Product
+							</a>
+						</div>
+
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<a href="/viewproduct/<%= p._id %>" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+									<%=p.product_name%>
+								</a>
+
+								<span class="stext-105 cl3">
+									₹<%=p.selling_price%>.00
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<% }) %> 
+			</div>
+		</div>
+	</div>
+</section>
+<!---------------------------------------------------------------------------------->
+
+
+<section id="brands"  class="sec-relate-product bg0 p-t-45 p-b-105">
+	<div class="container">
+		<div class="p-b-45">
+			<h3 class="ltext-106 cl5 txt-center">
+				Associated Brands
+			</h3>
+		</div>
+		<!-- Slide2 -->
+		<div class="wrap-slick2">
+			<div class="slick2">
+				<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
+					<!-- Block2 -->
+					<div class="block2">
+						<div style="width: 200px; height: 150px;" class="block2-pic hov-img0">
+							<img src="/images/Infinix.png" alt="IMG-PRODUCT">
+						</div>
+
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<span class="stext-105 cl3">
+									Infinix
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
+					<!-- Block2 -->
+					<div class="block2">
+						<div style="width: 200px; height: 150px;" class="block2-pic hov-img0">
+							<img src="/images/Mi.png" alt="IMG-PRODUCT">
+						</div>
+
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<span class="stext-105 cl3">
+									Mi
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
+					<!-- Block2 -->
+					<div class="block2">
+						<div style="width: 200px; height: 150px;" class="block2-pic hov-img0">
+							<img src="/images/Oppo.png" alt="IMG-PRODUCT">
+						</div>
+
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<span class="stext-105 cl3">
+									Oppo
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
+					<!-- Block2 -->
+					<div class="block2">
+						<div style="width: 200px; height: 150px;" class="block2-pic hov-img0">
+							<img src="/images/Realme.png" alt="IMG-PRODUCT">
+						</div>
+
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<span class="stext-105 cl3">
+									Realme
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
+					<!-- Block2 -->
+					<div class="block2">
+						<div style="width: 200px; height: 150px;" class="block2-pic hov-img0">
+							<img src="/images/Samsung.png" alt="IMG-PRODUCT">
+						</div>
+
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<span class="stext-105 cl3">
+									Samsung
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
+					<!-- Block2 -->
+					<div class="block2">
+						<div style="width: 200px; height: 150px;" class="block2-pic hov-img0">
+							<img src="/images/Vivo.png" alt="IMG-PRODUCT">
+						</div>
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<span class="stext-105 cl3">
+									Vivo
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!---------------------------------------------------------------------------------->
+	<!-- Product -->
+	<section id="product" class="bg0 p-t-23 p-b-140">
+		<div class="container">
+			<div class="p-b-10">
+				<h3 class="ltext-103 cl5">
+					Product Overview
+				</h3>
+			</div>
+
+			<div class="flex-w flex-sb-m p-b-52">
+				<div class="flex-w flex-l-m filter-tope-group m-tb-10">
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
+						All Products
+					</button>
+				</div>
+			</div>
+
+			<div class="row isotope-grid">
+				<% productDisplay.forEach((p)=>{ %> 
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+					<!-- Block2 -->
+					<div class="block2">
+						<div class="block2-pic hov-img0">
+							<img src="<%= p.image[0].url %>" alt="IMG-PRODUCT">
+
+							<a href="/viewproduct/<%= p._id %>" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 ">
+								View Product
+							</a>
+						</div>
+
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<a href="/viewproduct/<%= p._id %>" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+									<%= p.product_name %>
+								</a>
+								<span class="stext-105 cl3">
+									₹<%= p.selling_price %>.00
+								</span>
+							</div>
+
+							
+						</div>
+					</div>
+				</div>
+				<% }) %> 
+			</div>
+
+			<!-- Load more -->
+			<div class="flex-c-m flex-w w-full p-t-45">
+				<a href="/allproducts" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
+					Load More
+				</a>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- Footer -->
+	<%- include('./partials/footer') %>
+	<!-- Back to top -->
+	<div class="btn-back-to-top" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="zmdi zmdi-chevron-up"></i>
+		</span>
+	</div>
+
+
+<!--===============================================================================================-->	
+	<script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../vendor/bootstrap/js/popper.js"></script>
+	<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../vendor/select2/select2.min.js"></script>
+	<script>
+		$(".js-select2").each(function(){
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="../vendor/daterangepicker/moment.min.js"></script>
+	<script src="../vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="../vendor/slick/slick.min.js"></script>
+	<script src="../js/slick-custom.js"></script>
+<!--===============================================================================================-->
+	<script src="../vendor/parallax100/parallax100.js"></script>
+	<script>
+        $('.parallax100').parallax100();
+	</script>
+<!--===============================================================================================-->
+	<script src="../vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+	<script>
+		$('.gallery-lb').each(function() { // the containers for all your galleries
+			$(this).magnificPopup({
+		        delegate: 'a', // the selector for gallery item
+		        type: 'image',
+		        gallery: {
+		        	enabled:true
+		        },
+		        mainClass: 'mfp-fade'
+		    });
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="../vendor/isotope/isotope.pkgd.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../vendor/sweetalert/sweetalert.min.js"></script>
+	<script>
+		$('.js-addwish-b2').on('click', function(e){
+			e.preventDefault();
+		});
+
+		$('.js-addwish-b2').each(function(){
+			var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to wishlist !", "success");
+
+				$(this).addClass('js-addedwish-b2');
+				$(this).off('click');
+			});
+		});
+
+		$('.js-addwish-detail').each(function(){
+			var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
+
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to wishlist !", "success");
+
+				$(this).addClass('js-addedwish-detail');
+				$(this).off('click');
+			});
+		});
+
+		/*---------------------------------------------*/
+
+		$('.js-addcart-detail').each(function(){
+			var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to cart !", "success");
+			});
+		});
+	
+	</script>
+	<script>
+		(function ($) {
+  "use strict";
+  // Auto-scroll
+  $('#myCarousel').carousel({
+    interval: 5000
+  });
+
+  // Control buttons
+  $('.next').click(function () {
+    $('.carousel').carousel('next');
+    return false;
+  });
+  $('.prev').click(function () {
+    $('.carousel').carousel('prev');
+    return false;
+  });
+
+  // On carousel scroll
+  $("#myCarousel").on("slide.bs.carousel", function (e) {
+    var $e = $(e.relatedTarget);
+    var idx = $e.index();
+    var itemsPerSlide = 3;
+    var totalItems = $(".carousel-item").length;
+    if (idx >= totalItems - (itemsPerSlide - 1)) {
+      var it = itemsPerSlide -
+          (totalItems - idx);
+      for (var i = 0; i < it; i++) {
+        // append slides to end 
+        if (e.direction == "left") {
+          $(
+            ".carousel-item").eq(i).appendTo(".carousel-inner");
+        } else {
+          $(".carousel-item").eq(0).appendTo(".carousel-inner");
+        }
+      }
+    }
+  });
+})
+(jQuery);
+	</script>
+<!--===============================================================================================-->
+	<script src="../vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+	<script>
+		$('.js-pscroll').each(function(){
+			$(this).css('position','relative');
+			$(this).css('overflow','hidden');
+			var ps = new PerfectScrollbar(this, {
+				wheelSpeed: 1,
+				scrollingThreshold: 1000,
+				wheelPropagation: false,
+			});
+
+			$(window).on('resize', function(){
+				ps.update();
+			})
+		});
+	</script>
+
+<script>
+	$(document).ready(function () {
+		// Add smooth scrolling to all links
+		$("a").on('click', function (event) {
+
+			if (this.hash !== "") {
+				// Prevent default anchor click behavior
+				event.preventDefault();
+
+				var hash = this.hash;
+
+				$('html, body').animate({
+					scrollTop: $(hash).offset().top
+				}, 800, function () {
+
+					// Add hash (#) to URL when done scrolling (default click behavior)
+					window.location.hash = hash;
+				});
+			}
+		});
+	});
+</script>
+<!--===============================================================================================-->
+	<script src="../js/main.js"></script>
+
+</body>
+</html>
